@@ -1,0 +1,33 @@
+name = "catbox-api"
+main = "api/index.js"
+compatibility_date = "2025-07-24"
+
+# Configuración básica
+[env.production]
+name = "catbox-api-prod"
+
+# Límites y configuración
+[limits]
+cpu_ms = 50
+
+# Configuración de builds
+[build]
+command = ""
+
+# Puedes agregar variables de entorno si las necesitas
+# [vars]
+# MY_VARIABLE = "value"
+
+# Configuración de rutas (opcional)
+# [[routes]]
+# pattern = "api.tudominio.com/*"
+# zone_id = "tu_zone_id"
+
+# Para desarrollo local
+[dev]
+port = 8787
+local_protocol = "http"
+
+# Configuración de observabilidad (opcional)
+[observability]
+enabled = true
