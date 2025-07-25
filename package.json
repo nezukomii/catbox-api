@@ -1,0 +1,22 @@
+{
+  "name": "catbox-api-worker",
+  "version": "1.0.0",
+  "description": "Catbox.moe file upload API for Cloudflare Workers",
+  "main": "api/index.js",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail"
+  },
+  "keywords": [
+    "catbox",
+    "file-upload",
+    "cloudflare-workers",
+    "api"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}
