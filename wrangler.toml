@@ -1,14 +1,13 @@
 name = "catbox-api"
-main = "api/index.js"
-compatibility_date = "2025-07-24"
+main = "index.js"
+compatibility_date = "2025-07-25"
 
 # Configuración básica
 [env.production]
 name = "catbox-api-prod"
 
-# Límites y configuración
-[limits]
-cpu_ms = 5
+# El plan gratuito de Cloudflare Workers no soporta la configuración explícita de límites de CPU.
+# El límite por defecto es de 10ms por invocación.
 
 # Configuración de builds
 [build]
@@ -31,3 +30,4 @@ local_protocol = "http"
 # Configuración de observabilidad (opcional)
 [observability]
 enabled = true
+
