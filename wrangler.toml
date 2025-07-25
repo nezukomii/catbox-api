@@ -1,5 +1,5 @@
 name = "catbox-api"
-main = "index.js"
+main = "api/index.js"
 compatibility_date = "2025-07-25"
 
 # Configuración básica
