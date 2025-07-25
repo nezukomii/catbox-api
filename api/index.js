@@ -1,7 +1,7 @@
 // api/index.js - Catbox.moe Scraper API for Cloudflare Workers
 
 export default {
-  async fetch(request, env, ctx) {
+  async fetch(request, env) {
     const url = new URL(request.url);
     
     // CORS headers
@@ -98,15 +98,15 @@ async function handleUpload(request, headers) {
       );
     }
 
-    // Check file size (200MB limit)
+    // Check file size (5MB limit for free plan)
     const fileSize = file.size;
     const fileSizeMB = fileSize / (1024 * 1024);
     
-    if (fileSizeMB > 200) {
+    if (fileSizeMB > 5) {
       return new Response(
         JSON.stringify({ 
-          error: 'File too large', 
-          max_size: '200MB',
+          error: 'File too large for free plan',
+          max_size: '5MB',
           file_size: `${fileSizeMB.toFixed(2)}MB`
         }), 
         { status: 413, headers }
@@ -186,15 +186,15 @@ async function handleUploadTemp(request, headers) {
       );
     }
 
-    // Check file size
+    // Check file size (5MB limit for free plan)
     const fileSize = file.size;
     const fileSizeMB = fileSize / (1024 * 1024);
     
-    if (fileSizeMB > 200) {
+    if (fileSizeMB > 5) {
       return new Response(
         JSON.stringify({ 
-          error: 'File too large', 
-          max_size: '200MB',
+          error: 'File too large for free plan',
+          max_size: '5MB',
           file_size: `${fileSizeMB.toFixed(2)}MB`
         }), 
         { status: 413, headers }
@@ -293,14 +293,14 @@ async function handleUploadFromUrl(request, headers) {
     const urlPath = new URL(url).pathname;
     const filename = urlPath.split('/').pop() || 'download';
     
-    // Check file size
+    // Check file size (5MB limit for free plan)
     const fileSizeMB = blob.size / (1024 * 1024);
     
-    if (fileSizeMB > 200) {
+    if (fileSizeMB > 5) {
       return new Response(
         JSON.stringify({ 
-          error: 'File too large', 
-          max_size: '200MB',
+          error: 'File too large for free plan',
+          max_size: '5MB',
           file_size: `${fileSizeMB.toFixed(2)}MB`
         }), 
         { status: 413, headers }
@@ -363,4 +363,4 @@ async function handleUploadFromUrl(request, headers) {
       { status: 500, headers }
     );
   }
-      }
+}
