@@ -8,7 +8,7 @@ name = "catbox-api-prod"
 
 # Límites y configuración
 [limits]
-cpu_ms = 10
+cpu_ms = 5
 
 # Configuración de builds
 [build]
